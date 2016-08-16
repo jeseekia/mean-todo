@@ -11,6 +11,8 @@ var app = express();
 
 //Making sure db gets required and run
 require('./database');
+//Upload seed data
+require('./seed');
 
 //Configure express to serve static files from the public folder
 app.use("/",express.static("public"));
