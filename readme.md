@@ -4,6 +4,6 @@ Using
 - mongoose
 
 To run:
-npm install
-webpack
-nodemon
+- npm install
+- webpack
+- nodemon
