@@ -7,7 +7,10 @@ var express = require("express");
 var router =  express.Router();
 
 //Get mock todos
-var todosData = require('../../mock/todos.json');
+//var todosData = require('../../mock/todos.json');
+
+//Use MongoDB Todo model
+var Todo = require('../models/todo');
 
 //API Routes:
 // app.get('/api/todos',function(req,res){
@@ -15,7 +18,15 @@ var todosData = require('../../mock/todos.json');
 //   res.json({todos:[]});
 // });
 router.get('/todos',function(req,res){
-  res.json({todos: todosData});
+  //
+  Todo.find({},function(err,todosData){
+    if(err) {
+      return res.status(500).json({message:err.message});
+    } else {
+        res.json({todos: todosData});
+    }
+
+  });
 });
 
 //TODO: POST route to create new todos
