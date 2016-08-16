@@ -9,6 +9,9 @@ var router = require("./api");
 //to configure routes and start the server
 var app = express();
 
+//Making sure db gets required and run
+require('./database');
+
 //Configure express to serve static files from the public folder
 app.use("/",express.static("public"));
 
